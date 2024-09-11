@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meet Our Staff</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Staff Page Styles */
+    .staff-page {
+      text-align: center;
+      padding: 20px;
+    }
+
+    .staff-member {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 20px 0;
+    }
+
+    .staff-member img {
+      border-radius: 50%;
+      width: 100px;
+      height: 100px;
+      margin-right: 20px;
+    }
+
+    .staff-member h2 {
+      margin: 0;
+      font-size: 24px;
+      color: #242021;
+    }
+
+    .owner {
+      color: #FF5733; /* Color for Owner */
+    }
+
+    .vice-president {
+      color: #33C4FF; /* Color for Vice-President */
+    }
+
+    .admin {
+      color: #9B59B6; /* Color for Admin */
+    }
+
+    /* Form Styles */
+    .form-section {
+      background-color: #003366; /* Dark blue cube */
+      padding: 20px;
+      margin: 20px auto;
+      max-width: 600px;
+      border-radius: 10px;
+      color: white;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .form-section h2 {
+      margin-top: 0;
+    }
+
+    .form-section label {
+      display: block;
+      margin-bottom: 5px;
+      font-size: 14px; /* Adjusted font size */
+    }
+
+    .form-section input, .form-section select {
+      width: calc(100% - 22px); /* Adjust width for padding */
+      padding: 10px;
+      margin-bottom: 15px;
+      border-radius: 5px;
+      border: none;
+      font-size: 16px;
+    }
+
+    .form-section button {
+      padding: 10px 20px;
+      background-color: #FF5733; /* Button color */
+      border: none;
+      border-radius: 5px;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .form-section button:hover {
+      background-color: #FF4500; /* Button hover color */
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Meet Our Staff</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="rules.html">Rules</a></li>
+        <li><a href="staff.html">Staff</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="staff-page">
+      <div class="staff-member">
+        <img src="https://cdn.discordapp.com/avatars/1145414030983446628/0ef197bb8ec518e845101e9861524251.png?size=1024" alt="Redman Avatar">
+        <h2 class="owner">Redman (Owner)</h2>
+      </div>
+      <div class="staff-member">
+        <img src="https://cdn.discordapp.com/avatars/1031503409137856583/a75742e4a4e65a15bce955d6a66ff886.png?size=1024" alt="Vortex Avatar">
+        <h2 class="vice-president">Vortex (Vice-President)</h2>
+      </div>
+      <div class="staff-member">
+        <img src="https://cdn.discordapp.com/avatars/1023670109459460267/f86aa7ef7dd4b9fdf88589d45609cffd.png?size=1024" alt="Xingaliski Avatar">
+        <h2 class="admin">Xingaliski (Admin)</h2>
+      </div>
+      <div class="staff-member">
+        <img src="https://cdn.discordapp.com/avatars/1267580904688189512/37af88314ec4c9b3a4048c4ffcc0aea0.png?size=1024" alt="Ramiz Rock Avatar">
+        <h2 class="admin">Ramiz Rock (Admin)</h2>
+      </div>
+    </section>
+
+    <section class="form-section">
+      <h2>Join Us as a Moderator</h2>
+      <form action="https://formspree.io/f/your-form-id" method="POST">
+        <label for="real-name">Real Name:</label>
+        <input type="text" id="real-name" name="real-name" required>
+
+        <label for="discord-username">Discord Username:</label>
+        <input type="text" id="discord-username" name="discord-username" required>
+
+        <label for="age">Age (Only Numbers):</label>
+        <input type="number" id="age" name="age" min="1" required>
+
+        <label for="moderator-servers">Number of Servers as a Moderator (Only Numbers):</label>
+        <input type="number" id="moderator-servers" name="moderator-servers" min="0" required>
+
+        <label for="duration">Duration in Our Server:</label>
+        <select id="duration" name="duration" required>
+          <option value="1-week">1 Week</option>
+          <option value="1-month">1 Month</option>
+          <option value="4-months">4 Months</option>
+          <option value="6-months">6 Months</option>
+          <option value="1-year-or-more">1 Year or More</option>
+        </select>
+
+        <button type="submit">Submit</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2024 Our Discord Server</p>
+  </footer>
+</body>
+</html>

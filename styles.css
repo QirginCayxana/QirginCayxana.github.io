@@ -1,0 +1,107 @@
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+  overflow-x: hidden; /* Prevent horizontal scrollbar */
+}
+
+header {
+  background-color: #242021;
+  color: white;
+  padding: 15px;
+  text-align: center;
+}
+
+nav ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline;
+  margin-right: 10px;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+}
+
+/* Home Page Styles */
+.intro {
+  text-align: center;
+  margin: 50px 0;
+  padding: 0 20px;
+}
+
+.intro p {
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.6;
+  text-align: justify;
+}
+
+.join-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #50433D;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  margin-top: 20px;
+}
+
+/* Rules Page Specific Styles */
+main {
+  padding: 20px;
+  position: relative; /* Ensure relative positioning */
+}
+
+.rules-page {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  position: relative;
+}
+
+.rules-page h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.rules-page ul {
+  list-style-position: inside;
+  padding-left: 0;
+  text-align: left; /* Ensure list items are left-aligned */
+}
+
+.rules-page ul li {
+  margin-bottom: 10px;
+}
+
+.rainbow-line {
+  height: 5px;
+  background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet);
+}
+
+.top-line {
+  margin-bottom: 20px;
+}
+
+.bottom-line {
+  margin-top: 20px;
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet);
+}
+
+footer {
+  text-align: center;
+  background-color: #50433D;
+  color: white;
+  padding: 20px;
+  position: relative; /* Changed from fixed to relative */
+  width: 100%;
+}
