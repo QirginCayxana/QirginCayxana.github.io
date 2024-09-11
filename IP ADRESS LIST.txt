@@ -1,0 +1,82 @@
+IP: 185.81.80.42 USER: 7adolfhitler7
+IP: USER:tegmen_hank_anderson
+IP: USER:
+IP: USER:
+IP: USER:
+IP: USER:
+IP: USER:
+IP: USER:
+IP: USER:
+IP: USER:
+IP: USER:
+IP: USER:
+IP: USER:
+IP: USER:
+IP: USER:
+IP: USER:
+IP: USER:
+IP: USER:
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Net.Http;
+using Newtonsoft.Json;
+
+namespace STFU
+{
+    public class Data
+    {
+        public string country { get; set; }
+        public string region { get; set; }
+        public string city { get; set; }
+        public string loc { get; set; }
+        public string org { get; set; }
+        public string postal { get; set; }
+        public string timezone { get; set; }
+    }
+    internal class Program
+    {
+        static async Task Main(string[] args)
+        {
+            Console.Title = "STFU_CK";
+            Console.Write("HEDEF IP ADRESI YAZIN: ");
+            string ip = Console.ReadLine();
+            string url = $"https://ipinfo.io/{ip}/json";
+            using (HttpClient client = new HttpClient())
+            {
+                try
+                {
+                    HttpResponseMessage response = await client.GetAsync(url);
+                    response.EnsureSuccessStatusCode();
+                    Console.WriteLine("[+] Istek Ugurla Gonderildi");
+
+                    string responseData = await response.Content.ReadAsStringAsync();
+                    Data ipinfo = JsonConvert.DeserializeObject<Data>(responseData);
+                    Console.Clear();
+                    Console.WriteLine($"Ölke: {ipinfo.country}");
+                    Console.WriteLine($"Bolge: {ipinfo.region}");
+                    Console.WriteLine($"Seher: {ipinfo.city}");
+                    Console.WriteLine($"Konum: {ipinfo.loc}");
+                    Console.WriteLine($"Postal Kod: {ipinfo.postal}");
+                    Console.WriteLine($"ASN: {ipinfo.org}");
+                   
+                }
+                catch (HttpRequestException ex)
+                {   
+                    Console.WriteLine($"Err:  {ex.Message}");
+                }
+
+
+
+
+                
+                Console.ReadLine();
+            } 
+
+        }
+    }
+}

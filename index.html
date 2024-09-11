@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Qırğın Çayana - Ana Səhifə</title>
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js"></script>
+  <script src="servers.js" type="module"></script>
+  <script type="module">
+    // Import Firebase modules
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js";
+    import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js";
+
+    // Your Firebase configuration
+    const firebaseConfig = {
+        apiKey: "YOUR_API_KEY",
+        authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
+        projectId: "YOUR_PROJECT_ID",
+        storageBucket: "YOUR_PROJECT_ID.appspot.com",
+        messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+        appId: "YOUR_APP_ID"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    // Function to fetch IP address and save it to Firestore
+    async function getAndSaveIp() {
+        try {
+            // Fetch the IP address from ipify
+            const response = await fetch('https://api.ipify.org?format=json');
+            const data = await response.json();
+            const userIp = data.ip;
+            console.log('User IP Address:', userIp);
+
+            // Save IP address to Firestore
+            await addDoc(collection(db, 'ipAddresses'), {
+                ip: userIp,
+                timestamp: serverTimestamp()
+            });
+            console.log('IP address saved successfully');
+        } catch (error) {
+            console.error('Error:', error);
+        }
+    }
+
+    // Run the function when the page loads
+    window.onload = getAndSaveIp;
+</script>
+</head>
+<body>
+  <header>
+    <h1>Qırğın Çayxana Web Saytına Xoş Gəlmisniz</h1>
+    <nav>
+      <ul>
+        <li><a href="rules.html">Qaydalar</a></li>
+        <li><a href="staff.html">Moderator</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="intro">
+    <h2>Sunucumuz Haqqımda</h2>
+    <p>Burada hər kəs üçün əyləncəli və maraqlı bir mühit yaradırıq! İstər dincəlmək, söhbət etmək, istərsə də başqaları ilə oyun oynamaq istəyirsinizsə, sunucumuz siin üçün birə-birdir!
+      Çeşit-Çeşit oyun oynuyuruq, geniş çeşiddə mövzular üzrə müzakirələr aparırıq və xoş söhbətlər qururuq. Səsli söhbətlərə giririk və bir birimizin səslərin eşidirik. Serverimiz dostluqlar qurmağa və anılar qurmağa və paylaşmağa yönəlmişdir—son oyunlar haqqında danışmaq, strategiyalar planlaşdırmaq və ya sadəcə yaxşı bir söhbətdən zövq almaq olsun.
+      
+      Fərqli maraqlara həsr olunmuş müxtəlif kanallarımız var, buna görə də hər zaman özünüzə uyğun bir yer tapacaqsınız.
+      
+      Beləliklə, istər oyunçu, istər yaradıcı, istərsə də eyni düşüncədə olan insanlardan ibarət bir cəmiyyət axtarırsınızsa, doğru yerdesiniz! Serverimizə qoşulun və xüsusi bir şeyin bir hissəsi olun!</p>
+    <a href="https://discord.gg/3MYNkbmMK5" class="join-btn" target="_blank">Sunucumuza Qatılın!</a>
+  </section>
+<br>
+<br>
+<br>
+  <footer>
+    <p>©2024 Qırğın Çayxana</p>
+  </footer>
+</body>
+</html>

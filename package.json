@@ -1,0 +1,27 @@
+{
+  "name": "qirgin-cayxana-web",
+  "version": "1.0.0",
+  "description": "A project for managing and displaying server information.",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Your Name",
+  "license": "ISC",
+  "keywords": [
+    "discord",
+    "server",
+    "management"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yourusername/your-repo.git"
+  },
+  "homepage": "https://yourwebsite.com",
+  "bugs": {
+    "url": "https://github.com/yourusername/your-repo/issues"
+  },
+  "dependencies": {
+    "firebase": "^10.13.1"
+  }
+}
